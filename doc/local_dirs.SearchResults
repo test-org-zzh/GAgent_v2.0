@@ -1,0 +1,33 @@
+---- alive Matches (11 in 2 files) ----
+Mqttlib.c (software\lib\mqtt):	broker->alive = 300; // 300 seconds = 5 minutes
+Mqttlib.c (software\lib\mqtt):void mqtt_set_alive(mqtt_broker_handle_t* broker, uint16_t alive) {
+Mqttlib.c (software\lib\mqtt):	broker->alive = alive;
+Mqttlib.c (software\lib\mqtt):		0, 0, // Keep alive
+Mqttlib.c (software\lib\mqtt):		var_header[10]=  broker->alive>>8;
+Mqttlib.c (software\lib\mqtt):		var_header[11]= broker->alive&0xFF;
+Mqttlib.h (software\lib\mqtt):	uint16_t alive;
+Mqttlib.h (software\lib\mqtt):/** Set the keep alive timer.
+Mqttlib.h (software\lib\mqtt): * @param alive Keep aliver timer value (in seconds).
+Mqttlib.h (software\lib\mqtt):void mqtt_set_alive(mqtt_broker_handle_t* broker, uint16_t alive);
+---- mqtt_connect Matches (6 in 3 files) ----
+Mqttlib.c (software\lib\mqtt):int mqtt_connect(mqtt_broker_handle_t* broker)
+Mqttlib.h (software\lib\mqtt): * @note Only has effect before to call mqtt_connect
+Mqttlib.h (software\lib\mqtt): * @note Only has effect before to call mqtt_connect
+Mqttlib.h (software\lib\mqtt): * @note Only has effect before to call mqtt_connect
+Mqttlib.h (software\lib\mqtt):int mqtt_connect(mqtt_broker_handle_t* broker);
+Mqttxpg.c (software\cloud):        ret = mqtt_connect(pstBroketHandle);
+---- Mqtt_SendConnetPacket Matches (5 in 1 files) ----
+Mqttxpg.c (software\cloud):static int Mqtt_SendConnetPacket( mqtt_broker_handle_t *pstBroketHandle, char *pDID )
+Mqttxpg.c (software\cloud):    GAgent_Printf(GAGENT_LOG, "Mqtt_SendConnetPacket failed, GAgent_MQTT_initSocket ret:%d", ret); 
+Mqttxpg.c (software\cloud):    if( Mqtt_SendConnetPacket(Reg_broker,g_Xpg_GlobalVar.DID) == 0)
+Mqttxpg.c (software\cloud):        GAgent_Printf(GAGENT_INFO," Mqtt_SendConnetPacket OK!");
+Mqttxpg.c (software\cloud):    GAgent_Printf(GAGENT_INFO," Mqtt_SendConnetPacket NO!");    
+---- mqtt_set_alive Matches (3 in 3 files) ----
+Mqttlib.c (software\lib\mqtt):void mqtt_set_alive(mqtt_broker_handle_t* broker, uint16_t alive) {
+Mqttlib.h (software\lib\mqtt):void mqtt_set_alive(mqtt_broker_handle_t* broker, uint16_t alive);
+MqttSTM.c (software\cloud):    mqtt_set_alive(broker, MQTT_HEARTBEAT);
+---- mqtt_init Matches (4 in 3 files) ----
+Mqttlib.c (software\lib\mqtt):void mqtt_init(mqtt_broker_handle_t* broker, const char* clientid) {
+Mqttlib.h (software\lib\mqtt):void mqtt_init(mqtt_broker_handle_t* broker, const char* clientid);
+Mqttxpg.c (software\cloud):        mqtt_init(pstBroketHandle, GetRegClientid()); 
+Mqttxpg.c (software\cloud):        mqtt_init(pstBroketHandle,pDID);
