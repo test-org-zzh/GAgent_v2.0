@@ -9,7 +9,8 @@
 #include "x86_drv.h"
 
 extern int g_X86_SerialWithMcu_fd;
-
+void testsss()
+{}
 #define SERIAL_READ_LEN     255
 int main(void)
 {
